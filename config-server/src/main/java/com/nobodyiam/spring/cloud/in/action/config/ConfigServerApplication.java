@@ -1,4 +1,4 @@
-package com.nobodyiam.spring.cloud.in.action.config.server;
+package com.nobodyiam.spring.cloud.in.action.config;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

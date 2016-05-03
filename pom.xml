@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>config-server</module>
+        <module>reservation-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
