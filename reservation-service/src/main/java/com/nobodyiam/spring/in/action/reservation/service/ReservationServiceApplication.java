@@ -10,8 +10,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Arrays;
-
 /**
  * Created by Jason on 5/3/16.
  */
