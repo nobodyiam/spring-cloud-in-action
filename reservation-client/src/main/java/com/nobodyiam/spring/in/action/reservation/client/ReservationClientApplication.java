@@ -1,5 +1,7 @@
 package com.nobodyiam.spring.in.action.reservation.client;
 
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,6 +20,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableZuulProxy
 @EnableCircuitBreaker
 @EnableDiscoveryClient
+@EnableApolloConfig({"application","TEST1.spring-cloud-in-action"})
 @SpringBootApplication
 public class ReservationClientApplication {
   @Bean

@@ -2,6 +2,7 @@ package com.nobodyiam.spring.in.action.reservation.service;
 
 import com.google.common.base.Splitter;
 
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.nobodyiam.spring.in.action.reservation.service.entity.Reservation;
 
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Bean;
  * Created by Jason on 5/3/16.
  */
 @EnableDiscoveryClient
+@EnableApolloConfig({"application","TEST1.spring-cloud-in-action"})
 @SpringBootApplication
 public class ReservationServiceApplication {
   @Bean
