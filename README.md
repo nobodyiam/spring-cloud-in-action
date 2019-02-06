@@ -10,3 +10,4 @@ This is a demo Spring Boot project which shows the use of Spring Cloud families 
     - Hystrix
     - Zuul
     - Ribbon
+* Spring Cloud Feign
