@@ -1,10 +1,10 @@
 package com.nobodyiam.spring.in.action.reservation.client.controller;
 
-import com.google.common.collect.FluentIterable;
-
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.nobodyiam.spring.in.action.reservation.client.dto.Reservation;
-
+import java.util.Collection;
+import java.util.Collections;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.core.ParameterizedTypeReference;
@@ -14,9 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Collection;
-import java.util.Collections;
 
 /**
  * Created by Jason on 5/10/16.
@@ -44,7 +41,6 @@ public class ReservationApiGatewayRestController {
             "http://reservation-service/reservations",
             HttpMethod.GET, null, parameterizedTypeReference);
 
-    return FluentIterable.from(exchange.getBody().getContent())
-            .transform(Reservation::getReservationName).toList();
+    return exchange.getBody().getContent().stream().map(Reservation::getReservationName).collect(Collectors.toList());
   }
 }
