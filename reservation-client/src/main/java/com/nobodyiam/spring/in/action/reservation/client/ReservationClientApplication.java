@@ -15,6 +15,14 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.web.client.RestTemplate;
 
 /**
+ * Try the following urls to access reservation service indirectly
+ * http://localhost:9999/reservations/names or http://localhost:9999/reservations/names-feign to access the reservation service
+ *
+ * <br />
+ *
+ * Try the following urls to access reservation service directly, i.e. as zuul proxy
+ * http://localhost:9999/reservation-service/reservations
+ *
  * Created by Jason on 5/5/16.
  */
 @EnableZuulProxy

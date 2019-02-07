@@ -14,6 +14,12 @@ import java.util.List;
  */
 @RepositoryRestResource
 public interface ReservationRepository extends PagingAndSortingRepository<Reservation, Long> {
+
+  /**
+   * http://localhost:8000/reservations/search/by-name?name=Tom
+   * @param reservationName
+   * @return
+   */
   @RestResource(path = "by-name")
   List<Reservation> findByReservationName(@Param("name") String reservationName);
 }
