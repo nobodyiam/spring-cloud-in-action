@@ -9,6 +9,7 @@
         <module>eureka-server</module>
         <module>reservation-client</module>
         <module>hystrix-dashboard</module>
+        <module>turbine</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
