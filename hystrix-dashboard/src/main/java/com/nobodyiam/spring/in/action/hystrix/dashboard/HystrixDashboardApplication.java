@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 /**
+ * open http://localhost:8010/hystrix with stream as http://localhost:9999/actuator/hystrix.stream
+ *
  * Created by Jason on 5/10/16.
  */
 @EnableHystrixDashboard

@@ -22,7 +22,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(value = "reservation-service", configuration = CustomerClientConfiguration.class)
+@FeignClient(value = "reservation-service", fallback = ReservationServiceFallback.class, configuration = CustomerClientConfiguration.class)
 public interface ReservationService {
   @RequestMapping(value = "/reservations", method = RequestMethod.GET)
   Resources<Reservation> queryReservations();

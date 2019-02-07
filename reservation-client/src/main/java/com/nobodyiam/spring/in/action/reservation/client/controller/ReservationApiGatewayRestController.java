@@ -49,7 +49,6 @@ public class ReservationApiGatewayRestController {
   }
 
   @RequestMapping("/names-feign")
-  @HystrixCommand(fallbackMethod = "getReservationNamesFallback")
   public Collection<String> getReservationNamesViaFeign() {
     Resources<Reservation> reservations = reservationService.queryReservations();
 

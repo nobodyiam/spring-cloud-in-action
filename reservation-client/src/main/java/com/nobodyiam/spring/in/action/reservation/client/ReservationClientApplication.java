@@ -7,6 +7,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -32,7 +33,8 @@ public class ReservationClientApplication {
   }
 
   /**
-   * The load balanced rest template
+   * The load balanced rest template, it will be customized with load balancer interceptors
+   * @see LoadBalancerAutoConfiguration
    */
   @LoadBalanced
   @Bean
