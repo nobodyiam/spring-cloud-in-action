@@ -12,3 +12,4 @@ This is a demo Spring Boot project which shows the use of Spring Cloud families 
     - Ribbon
     - Turbine
 * Spring Cloud Feign
+* Spring Cloud Sleuth

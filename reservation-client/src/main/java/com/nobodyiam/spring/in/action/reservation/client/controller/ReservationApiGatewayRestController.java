@@ -6,6 +6,8 @@ import com.nobodyiam.spring.in.action.reservation.client.service.ReservationServ
 import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.core.ParameterizedTypeReference;
@@ -22,6 +24,8 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/reservations")
 public class ReservationApiGatewayRestController {
+
+  private static final Logger logger = LoggerFactory.getLogger(ReservationApiGatewayRestController.class);
   @Autowired
   @LoadBalanced
   private RestTemplate rt;
@@ -36,6 +40,7 @@ public class ReservationApiGatewayRestController {
   @RequestMapping("/names")
   @HystrixCommand(fallbackMethod = "getReservationNamesFallback")
   public Collection<String> getReservationNames() {
+    logger.info("Get reservation names via rest template!");
 
     ParameterizedTypeReference<Resources<Reservation>> parameterizedTypeReference =
             new ParameterizedTypeReference<Resources<Reservation>>() {
@@ -50,6 +55,8 @@ public class ReservationApiGatewayRestController {
 
   @RequestMapping("/names-feign")
   public Collection<String> getReservationNamesViaFeign() {
+    logger.info("Get reservation names via feign!");
+
     Resources<Reservation> reservations = reservationService.queryReservations();
 
     return reservations.getContent().stream().map(Reservation::getReservationName).collect(Collectors.toList());
