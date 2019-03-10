@@ -1,0 +1,20 @@
+server:
+  port: 9088
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+turbine:
+  appConfig: reservation-client
+  clusterNameExpression: "'default'"
+
+# edas
+spring:
+  cloud:
+    alicloud:
+      ans:
+        server-list: 127.0.0.1
+        server-port: 8080
